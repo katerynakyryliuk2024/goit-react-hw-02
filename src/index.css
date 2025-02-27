@@ -15,13 +15,14 @@ p {
 }
 
 /*body {
-  margin: 0 auto;
+  margin-top: 15px;
+  margin-left: 15px;
   display: flex;
-  place-items: center;
+  flex-direction: column;
   min-width: 320px;
   min-height: 100vh;
-}
-*/
+}*/
+
 ul,
 ol {
   margin: 0;
