@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
-export default function Options({ good, neutral, bad }) {
-  const [clicks1, setClicks1] = useState({ good });
-  const [clicks2, setClicks2] = useState({ neutral });
-  const [clicks3, setClicks3] = useState({ bad });
+export default function Options({ value }) {
+  const [clicks1, setClicks1] = useState(value.good);
+  const [clicks2, setClicks2] = useState(value.neutral);
+  const [clicks3, setClicks3] = useState(value.bad);
 
   useEffect(() => {
     console.log(clicks1);
