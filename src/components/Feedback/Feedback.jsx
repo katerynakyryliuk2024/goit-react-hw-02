@@ -1,5 +1,5 @@
 //import css from "./Feedback.module.css";//
-export default function Feedback({ value, total }) {
+export default function Feedback({ value, total, posAmount }) {
   return (
     <>
       <div>
@@ -7,6 +7,7 @@ export default function Feedback({ value, total }) {
         <p>Neutral: {value.neutral}</p>
         <p>Bad: {value.bad}</p>
         <p>Total: {total}</p>
+        <p>Positive : {posAmount}%</p>
       </div>
     </>
   );
