@@ -23,13 +23,7 @@ export default function Options({ onBtnClick, value }) {
       <button onClick={() => onBtnClick("bad")}>Bad</button>
 
       {value.good || value.neutral || value.bad !== 0 ? (
-        <button
-          onClick={() => {
-            () => onBtnClick(0);
-          }}
-        >
-          Reset
-        </button>
+        <button onClick={() => onBtnClick(0)}>Reset</button>
       ) : (
         ""
       )}
