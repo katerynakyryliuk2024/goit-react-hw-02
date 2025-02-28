@@ -4,6 +4,7 @@ import Description from "../Description/Description";
 import css from "./App.module.css";
 import Options from "../Options/Options";
 import Feedback from "../Feedback/Feedback";
+import Notification from "../Notification/Notification";
 
 export default function App() {
   const info = {
@@ -21,11 +22,21 @@ export default function App() {
     });
   };
 
+  const totalFeedback = data.good + data.neutral + data.bad;
+
   return (
     <div className={css.container}>
       <Description />
-      <Options value={info} onBtnClick={updateFeedback} />
-      <Feedback value={info} />
+      <Options
+        value={data}
+        onBtnClick={updateFeedback}
+        onBtnReset={handlReset}
+      />
+      {data.good || data.neutral || data.bad !== 0 ? (
+        <Feedback value={data} total={totalFeedback} />
+      ) : (
+        <Notification />
+      )}
     </div>
   );
 }
