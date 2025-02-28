@@ -5,7 +5,6 @@ import css from "./App.module.css";
 import Options from "../Options/Options";
 import Feedback from "../Feedback/Feedback";
 import Notification from "../Notification/Notification";
-import { CgDanger } from "react-icons/cg";
 
 export default function App() {
   const info = {
