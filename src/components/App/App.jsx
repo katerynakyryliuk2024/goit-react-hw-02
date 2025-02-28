@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import Description from "../Description/Description";
 import css from "./App.module.css";
@@ -12,10 +12,19 @@ export default function App() {
     bad: 0,
   };
 
+  const [data, setData] = useState(info);
+
+  const updateFeedback = (feedbackType) => {
+    setData({
+      ...data,
+      [feedbackType]: data[feedbackType] + 1,
+    });
+  };
+
   return (
     <div className={css.container}>
       <Description />
-      <Options value={info} />
+      <Options value={info} onBtnClick={updateFeedback} />
       <Feedback value={info} />
     </div>
   );
