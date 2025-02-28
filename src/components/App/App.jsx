@@ -27,11 +27,7 @@ export default function App() {
   return (
     <div className={css.container}>
       <Description />
-      <Options
-        value={data}
-        onBtnClick={updateFeedback}
-        onBtnReset={handlReset}
-      />
+      <Options value={data} onBtnClick={updateFeedback} />
       {data.good || data.neutral || data.bad !== 0 ? (
         <Feedback value={data} total={totalFeedback} />
       ) : (
