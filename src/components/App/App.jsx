@@ -22,15 +22,22 @@ export default function App() {
     });
   };
 
+  const resetFeedback = () => {
+    setData(info);
+  };
+
   const totalFeedback = data.good + data.neutral + data.bad;
 
   const positive = Math.round((data.good / totalFeedback) * 100);
-  console.log(positive);
 
   return (
     <div className={css.container}>
       <Description />
-      <Options value={data} onBtnClick={updateFeedback} />
+      <Options
+        value={data}
+        onBtnClick={updateFeedback}
+        resetFeedback={resetFeedback}
+      />
       {data.good || data.neutral || data.bad !== 0 ? (
         <Feedback value={data} total={totalFeedback} posAmount={positive} />
       ) : (

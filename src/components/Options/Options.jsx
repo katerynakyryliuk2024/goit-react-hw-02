@@ -1,6 +1,6 @@
 import css from "./Options.module.css";
 
-export default function Options({ onBtnClick, value }) {
+export default function Options({ onBtnClick, value, resetFeedback }) {
   // const [clicks1, setClicks1] = useState(value.good);
   //const [clicks2, setClicks2] = useState(value.neutral);
   //const [clicks3, setClicks3] = useState(value.bad);
@@ -23,7 +23,7 @@ export default function Options({ onBtnClick, value }) {
       <button onClick={() => onBtnClick("bad")}>Bad</button>
 
       {value.good || value.neutral || value.bad !== 0 ? (
-        <button onClick={() => onBtnClick(0)}>Reset</button>
+        <button onClick={resetFeedback}>Reset</button>
       ) : (
         ""
       )}
