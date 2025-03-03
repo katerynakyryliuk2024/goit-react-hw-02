@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Description from "../Description/Description";
 import css from "./App.module.css";
@@ -13,7 +13,16 @@ export default function App() {
     bad: 0,
   };
 
-  const [data, setData] = useState(info);
+  const [data, setData] = useState(() => {
+    const savedData = window.localStorage.getItem("saved-data");
+    console.log(savedData);
+
+    if (savedData !== null) {
+      return JSON.parse(savedData);
+    }
+
+    return info;
+  });
 
   const updateFeedback = (feedbackType) => {
     setData({
@@ -29,6 +38,11 @@ export default function App() {
   const totalFeedback = data.good + data.neutral + data.bad;
 
   const positive = Math.round((data.good / totalFeedback) * 100);
+
+  useEffect(() => {
+    console.log(data);
+    window.localStorage.setItem("saved-data", JSON.stringify(data));
+  }, [data]);
 
   return (
     <div className={css.container}>
